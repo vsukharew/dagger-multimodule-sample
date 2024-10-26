@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fragment_main_menu_order_flow_btn">Order</string>
+    <string name="fragment_main_menu_calendar_btn">Calendar</string>
+</resources>
