@@ -5,7 +5,6 @@ import vsukharew.multimodule.dagger.calendar.impl.di.CalendarDependencies
 import vsukharew.multimodule.dagger.calendar.impl.presentation.CalendarFragment
 import vsukharew.multimodule.dagger.core.di.component.DaggerComponent
 import vsukharew.multimodule.dagger.core.di.PerScreen
-import vsukharew.multimodule.dagger.core.di.utils.clearScreenDependencies
 import vsukharew.multimodule.dagger.core.di.utils.getOrCreateComponent
 import vsukharew.multimodule.dagger.core.di.utils.releaseComponent
 import vsukharew.multimodule.dagger.core.di.utils.resolveDependency
@@ -38,8 +37,6 @@ internal interface CalendarScreenComponent : DaggerComponent {
                 activity?.run {
                     if (!isChangingConfigurations) {
                         CalendarDataComponent.release(fragment)
-                        releaseComponent<CalendarApiComponent>()
-                        clearScreenDependencies<CalendarDependencies>()
                     }
                 }
             }

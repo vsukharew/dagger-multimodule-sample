@@ -4,8 +4,6 @@ import androidx.fragment.app.Fragment
 import dagger.Component
 import vsukharew.multimodule.dagger.core.di.component.DaggerComponent
 import vsukharew.multimodule.dagger.core.di.PerFeature
-import vsukharew.multimodule.dagger.core.di.utils.clearScreenDependencies
-
 import vsukharew.multimodule.dagger.core.di.utils.getOrCreateComponent
 import vsukharew.multimodule.dagger.core.di.utils.releaseComponent
 import vsukharew.multimodule.dagger.core.di.utils.resolveDependency
@@ -43,7 +41,7 @@ internal interface AddressScreenComponent : DaggerComponent {
             with(fragment) {
                 if (activity?.isChangingConfigurations == false) {
                     releaseComponent<AddressScreenComponent>()
-                    clearScreenDependencies<AddressScreenExternalDependencies>()
+                    
                 }
             }
         }
