@@ -1,4 +1,4 @@
-package vsukharew.multimodule.dagger
+package vsukharew.multimodule.dagger.dependencies.calendar
 
 import com.github.terrakok.cicerone.Router
 import vsukharew.multimodule.dagger.calendar.impl.di.CalendarDependencies

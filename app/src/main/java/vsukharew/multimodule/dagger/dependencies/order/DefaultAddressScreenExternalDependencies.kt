@@ -1,4 +1,4 @@
-package vsukharew.multimodule.dagger
+package vsukharew.multimodule.dagger.dependencies.order
 
 import vsukharew.multimodule.dagger.calendar.api.CalendarFeatureApi
 import vsukharew.multimodule.dagger.order.impl.address.di.AddressScreenExternalDependencies

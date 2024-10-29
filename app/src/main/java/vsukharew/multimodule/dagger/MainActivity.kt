@@ -8,6 +8,7 @@ import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.google.android.material.snackbar.Snackbar
+import vsukharew.multimodule.dagger.component.MainComponent
 
 import vsukharew.multimodule.dagger.core.di.utils.getOrCreateComponent
 import vsukharew.multimodule.dagger.databinding.ActivityMainBinding

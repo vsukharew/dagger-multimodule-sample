@@ -7,6 +7,10 @@ import vsukharew.multimodule.dagger.core.di.component.DaggerCoreComponent
 import vsukharew.multimodule.dagger.core.di.dependencies.Dependencies
 import vsukharew.multimodule.dagger.core.di.dependencies.DependenciesProvider
 import vsukharew.multimodule.dagger.core.di.utils.getOrCreateComponent
+import vsukharew.multimodule.dagger.dependencies.calendar.DefaultCalendarDependencies
+import vsukharew.multimodule.dagger.dependencies.mainmenu.DefaultMainMenuScreenDependencies
+import vsukharew.multimodule.dagger.dependencies.order.DefaultAddressScreenExternalDependencies
+import vsukharew.multimodule.dagger.dependencies.order.DefaultOrderFlowScreenExternalDependencies
 import vsukharew.multimodule.dagger.order.impl.di.OrderApiComponent
 import vsukharew.multimodule.dagger.order.impl.address.di.AddressScreenExternalDependencies
 import vsukharew.multimodule.dagger.order.impl.flow.di.OrderFlowScreenExternalDependencies
@@ -63,7 +67,7 @@ class AppWideDependenciesProvider : DependenciesProvider {
                 )
             }
 
-            else -> throw Exception()
+            else -> throw IllegalArgumentException()
         }
         return dependencies.also { componentDependencies[dependenciesClass] = it }
     }

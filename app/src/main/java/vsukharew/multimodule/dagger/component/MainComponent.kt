@@ -1,6 +1,7 @@
-package vsukharew.multimodule.dagger
+package vsukharew.multimodule.dagger.component
 
 import dagger.Component
+import vsukharew.multimodule.dagger.MainActivity
 import vsukharew.multimodule.dagger.core.di.component.CoreComponent
 
 import vsukharew.multimodule.dagger.core.di.component.DaggerComponent
