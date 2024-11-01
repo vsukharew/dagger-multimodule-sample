@@ -29,9 +29,9 @@ internal class AddressFragment : Fragment(R.layout.fragment_address) {
         ViewModelFactory(this) {
             component.run {
                 factory.create(
-                    addressScreenExternalDependencies().calendarFeatureApi(),
-                    addressScreenInternalDependencies().globalRouter(),
-                    addressScreenInternalDependencies().flowRouter(),
+                    addressScreenDependencies().calendarFeatureApi(),
+                    addressScreenDependencies().globalRouter(),
+                    addressScreenDependencies().flowRouter(),
                     it
                 )
             }

@@ -1,4 +1,4 @@
-package vsukharew.multimodule.dagger.order.impl.flow.presentation
+package vsukharew.multimodule.dagger.root.presentation
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory

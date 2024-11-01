@@ -1,4 +1,4 @@
-package vsukharew.multimodule.dagger.order.impl.flow.di
+package vsukharew.multimodule.dagger.root.di.module
 
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.Router

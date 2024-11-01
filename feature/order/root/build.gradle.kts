@@ -1,4 +1,3 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.kotlin.gradle.plugin)
@@ -6,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "vsukharew.multimodule.dagger.core.di"
+    namespace = "vsukharew.multimodule.impl_root"
     compileSdk = 34
 
     defaultConfig {
@@ -36,13 +35,18 @@ android {
 
 dependencies {
     implementation(project(":core:api"))
-    implementation(project(":core:impl"))
+    implementation(project(":core:di"))
     implementation(project(":core:ui"))
+    implementation(project(":feature:calendar:api"))
+    implementation(project(":feature:calendar:impl"))
+    implementation(project(":feature:order:api"))
+    implementation(project(":feature:order:impl"))
     implementation(libs.android.core.ktx)
+    implementation(libs.android.fragment.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.android.material)
-    implementation(libs.cicerone)
     implementation(libs.dagger.library)
+    implementation(libs.cicerone)
     kapt(libs.dagger.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.junit)

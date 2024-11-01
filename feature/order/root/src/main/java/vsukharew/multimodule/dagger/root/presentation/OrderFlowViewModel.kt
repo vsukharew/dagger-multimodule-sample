@@ -1,4 +1,4 @@
-package vsukharew.multimodule.dagger.order.impl.flow.presentation
+package vsukharew.multimodule.dagger.root.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -7,6 +7,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import vsukharew.multimodule.dagger.core.di.Flow
+import vsukharew.multimodule.dagger.order.impl.email.presentation.EmailScreen
 
 internal class OrderFlowViewModel @AssistedInject constructor(
     private val globalRouter: Router,
@@ -14,8 +15,8 @@ internal class OrderFlowViewModel @AssistedInject constructor(
     @Assisted private val handle: SavedStateHandle,
 ) : ViewModel() {
 
-    fun innerNavigate() {
-
+    fun startFlow() {
+        flowRouter.navigateTo(EmailScreen)
     }
 
     fun back() {

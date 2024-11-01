@@ -55,6 +55,7 @@ dependencies {
     implementation(project(":feature:calendar:impl"))
     implementation(project(":feature:order:api"))
     implementation(project(":feature:order:impl"))
+    implementation(project(":feature:order:root"))
 
     debugImplementation(libs.leakCanary)
     implementation(libs.android.core.ktx)
