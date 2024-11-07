@@ -4,7 +4,7 @@ import com.github.terrakok.cicerone.Router
 import dagger.Module
 import dagger.Provides
 import vsukharew.multimodule.dagger.order.api.OrderFeatureApi
-import vsukharew.multimodule.dagger.order.impl.di.OrderApiComponent
+import vsukharew.multimodule.dagger.root.di.component.OrderApiComponent
 import javax.inject.Singleton
 
 @Module

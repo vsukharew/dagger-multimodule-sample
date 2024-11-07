@@ -3,15 +3,13 @@ package vsukharew.multimodule.dagger.module
 import dagger.Module
 import vsukharew.multimodule.dagger.module.calendar.CalendarDependenciesModule
 import vsukharew.multimodule.dagger.module.mainmenu.MainMenuScreenDependenciesModule
-import vsukharew.multimodule.dagger.module.order.AddressScreenExternalDependenciesModule
-import vsukharew.multimodule.dagger.module.order.OrderFlowScreenExternalDependenciesModule
+import vsukharew.multimodule.dagger.module.order.OrderFlowScreenDependenciesModule
 
 @Module(
     includes = [
         CalendarDependenciesModule::class,
         MainMenuScreenDependenciesModule::class,
-        OrderFlowScreenExternalDependenciesModule::class,
-        AddressScreenExternalDependenciesModule::class
+        OrderFlowScreenDependenciesModule::class,
     ]
 )
 class CommonDependenciesModule

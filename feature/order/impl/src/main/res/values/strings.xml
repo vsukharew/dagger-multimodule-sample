@@ -3,5 +3,5 @@
     <string name="email_hint">Email</string>
     <string name="address_hint">Address</string>
     <string name="create_order_btn">Create order</string>
-    <string name="open_calendar_btn">Open calendar</string>
+    <string name="open_calendar_btn">Open calendar inside flow</string>
 </resources>

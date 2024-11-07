@@ -9,9 +9,9 @@ import dagger.assisted.AssistedInject
 import vsukharew.multimodule.dagger.calendar.api.CalendarFeatureApi
 
 internal class AddressViewModel @AssistedInject constructor(
-    @Assisted private val calendarFeatureApi: CalendarFeatureApi,
-    @Assisted("Global") private val globalRouter: Router,
-    @Assisted("Flow") private val flowRouter: Router,
+    private val globalRouter: Router,
+    private val calendarFeatureApi: CalendarFeatureApi,
+    @Assisted private val flowRouter: Router,
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -30,9 +30,7 @@ internal class AddressViewModel @AssistedInject constructor(
     @AssistedFactory
     interface Factory {
         fun create(
-            @Assisted calendarFeatureApi: CalendarFeatureApi,
-            @Assisted("Global") globalRouter: Router,
-            @Assisted("Flow") flowRouter: Router,
+            @Assisted flowRouter: Router,
             savedStateHandle: SavedStateHandle
         ): AddressViewModel
     }
