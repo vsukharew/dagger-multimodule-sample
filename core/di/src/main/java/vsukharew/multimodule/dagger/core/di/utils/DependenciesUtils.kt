@@ -9,7 +9,7 @@ inline fun <reified T : Dependencies> Fragment.resolveDependency(): T {
     return allParents
         .onEach { println("resolve dependency - child = $this, parent = $it") }
         .filterIsInstance<HasDependencies>()
-        .map { it.dependenciesProvider.getDependencies(T::class) }
+        .map { it.dependenciesProvider.getDependencies(T::class) as? T }
         .firstOrNull() ?: throw IllegalArgumentException()
 }
 

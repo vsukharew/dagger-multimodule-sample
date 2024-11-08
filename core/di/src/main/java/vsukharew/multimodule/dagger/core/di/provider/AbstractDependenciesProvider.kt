@@ -14,11 +14,11 @@ abstract class AbstractDependenciesProvider : DependenciesProvider {
 
     override fun <T : Dependencies> getDependencies(
         dependenciesClass: KClass<T>
-    ): T? {
+    ): Dependencies? {
         val dependencies = componentDependencies[dependenciesClass] ?: createDependencies(
             dependenciesClass
         )?.also { componentDependencies[dependenciesClass] = it }
-        return dependencies as? T?
+        return dependencies
     }
 
     override fun <T : Dependencies> clearDependencies(dependenciesClass: KClass<T>) {
@@ -28,8 +28,8 @@ abstract class AbstractDependenciesProvider : DependenciesProvider {
     override fun <T : DaggerComponent, C : KClass<T>> getOrCreateComponent(
         clazz: C,
         creationBlock: () -> T
-    ): T {
-        return componentsStorage[clazz] as? T ?: creationBlock.invoke().also {
+    ): DaggerComponent {
+        return componentsStorage[clazz] ?: creationBlock.invoke().also {
             componentsStorage[clazz] = it
         }
     }
