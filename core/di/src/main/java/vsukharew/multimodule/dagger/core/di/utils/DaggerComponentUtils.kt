@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Application
 import androidx.fragment.app.Fragment
 import vsukharew.multimodule.dagger.core.di.component.DaggerComponent
+import vsukharew.multimodule.dagger.core.di.dependencies.Dependencies
 import vsukharew.multimodule.dagger.core.di.provider.DependenciesProvider
 import vsukharew.multimodule.dagger.core.di.dependencies.HasDependencies
 import vsukharew.multimodule.dagger.core.ui.extension.allParents
@@ -27,7 +28,11 @@ inline fun <reified T : DaggerComponent> Fragment.getOrCreateComponent(noinline 
 
 
 inline fun <reified T : DaggerComponent> Fragment.releaseComponent() =
-    activity?.releaseComponent<T>()
+    allParents
+        .filterIsInstance<HasDependencies>()
+        .map(HasDependencies::dependenciesProvider)
+        .firstOrNull { it.containsComponent(T::class) }
+        ?.releaseComponent(T::class)
 
 inline fun <reified T : DaggerComponent> Activity.releaseComponent() =
     (application as HasDependencies).dependenciesProvider.releaseComponent(T::class)

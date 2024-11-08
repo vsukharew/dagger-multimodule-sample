@@ -37,5 +37,9 @@ abstract class AbstractDependenciesProvider : DependenciesProvider {
     override fun <T : DaggerComponent, C : KClass<T>> releaseComponent(clazz: C) {
         componentsStorage.remove(clazz)
     }
+
+    override fun <T : DaggerComponent, C : KClass<T>> containsComponent(componentClass: C): Boolean {
+        return componentsStorage.containsKey(componentClass)
+    }
 }
 
