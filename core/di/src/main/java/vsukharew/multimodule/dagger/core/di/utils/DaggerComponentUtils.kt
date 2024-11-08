@@ -27,7 +27,11 @@ inline fun <reified T : DaggerComponent> Fragment.getOrCreateComponent(noinline 
 
 
 inline fun <reified T : DaggerComponent> Fragment.releaseComponent() =
-    activity?.releaseComponent<T>()
+    allParents
+        .filterIsInstance<HasDependencies>()
+        .map(HasDependencies::dependenciesProvider)
+        .firstOrNull { it.containsComponent(T::class) }
+        ?.releaseComponent(T::class)
 
 inline fun <reified T : DaggerComponent> Activity.releaseComponent() =
     (application as HasDependencies).dependenciesProvider.releaseComponent(T::class)
