@@ -10,7 +10,7 @@ import vsukharew.multimodule.dagger.core.ui.extension.allParents
 
 inline fun <reified T : DaggerComponent> DependenciesProvider.getOrCreateComponent(
     noinline creationBlock: () -> T
-): T = getOrCreateComponent(T::class, creationBlock)
+): T = getOrCreateComponent(T::class, creationBlock) as T
 
 inline fun <reified T : DaggerComponent> Application.getOrCreateComponent(noinline creationBlock: () -> T): T =
     (this as HasDependencies).dependenciesProvider.getOrCreateComponent(creationBlock)
@@ -23,7 +23,7 @@ inline fun <reified T : DaggerComponent> Fragment.getOrCreateComponent(noinline 
         .onEach { println("getOrCreateComponent - child - $this, parent = $it") }
         .filterIsInstance<HasDependencies>()
         .first()
-        .dependenciesProvider.getOrCreateComponent(T::class, creationBlock)
+        .dependenciesProvider.getOrCreateComponent(T::class, creationBlock) as T
 
 
 inline fun <reified T : DaggerComponent> Fragment.releaseComponent() =

@@ -10,15 +10,15 @@ abstract class AbstractDependenciesProvider : DependenciesProvider {
     private val componentsStorage: MutableMap<KClass<*>, DaggerComponent> = mutableMapOf()
     protected abstract val dependenciesComponent: DependenciesComponent
 
-    override fun <T : Dependencies, C : KClass<T>> getDependencies(dependenciesClass: C): T? {
-        return dependenciesComponent.dependencies[dependenciesClass.java]?.get() as? T?
+    override fun <T : Dependencies, C : KClass<T>> getDependencies(dependenciesClass: C): Dependencies? {
+        return dependenciesComponent.dependencies[dependenciesClass.java]?.get()
     }
 
     override fun <T : DaggerComponent, C : KClass<T>> getOrCreateComponent(
         clazz: C,
         creationBlock: () -> T
-    ): T {
-        return componentsStorage[clazz] as? T ?: creationBlock.invoke().also {
+    ): DaggerComponent {
+        return componentsStorage[clazz] ?: creationBlock.invoke().also {
             componentsStorage[clazz] = it
         }
     }
