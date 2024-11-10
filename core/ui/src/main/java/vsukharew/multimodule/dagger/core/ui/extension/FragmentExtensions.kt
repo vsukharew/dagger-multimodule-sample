@@ -1,7 +1,7 @@
 package vsukharew.multimodule.dagger.core.ui.extension
 
 import android.app.Activity
-import android.content.Context
+import android.app.Application
 import androidx.fragment.app.Fragment
 
 val Fragment.allParents: Sequence<Any>
@@ -11,7 +11,7 @@ val Fragment.allParents: Sequence<Any>
                 it is Fragment && it.parentFragment != null -> it.parentFragment
                 it is Fragment -> it.activity ?: it.context
                 it is Activity -> it.application
-                it is Context -> it.applicationContext
+                it is Application -> null
                 else -> null
             }
         }
