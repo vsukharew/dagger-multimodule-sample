@@ -5,6 +5,7 @@ import com.android.build.api.dsl.BuildFeatures
 import com.android.build.api.dsl.BuildType
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.DefaultConfig
+import com.android.build.api.dsl.Installation
 import com.android.build.api.dsl.ProductFlavor
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
@@ -21,7 +22,8 @@ typealias AndroidExtension = CommonExtension<
         out BuildType,
         out DefaultConfig,
         out ProductFlavor,
-        out AndroidResources>
+        out AndroidResources,
+        out Installation>
 
 internal inline fun Project.generalAndroid(block: AndroidExtension.() -> Unit) {
     extensions.run {
