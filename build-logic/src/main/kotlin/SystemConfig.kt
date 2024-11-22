@@ -14,12 +14,12 @@ object SystemConfig {
     }
 
     object CompileOptions {
-        val sourceCompatibility = JavaVersion.VERSION_17
+        val sourceCompatibility = JavaVersion.VERSION_21
         val targetCompatibility = sourceCompatibility
     }
 
     object KotlinOptions {
-        const val TOOLCHAIN_JDK_VERSION = 17
+        const val TOOLCHAIN_JDK_VERSION = 21
     }
 
     object BuildFeatures {

@@ -2,7 +2,7 @@
 activity = "1.9.3"
 android-core-ktx = "1.12.0"
 android-fragment-ktx = "1.6.1"
-android-gradle-plugin = "8.1.4"
+android-gradle-plugin = "8.7.2"
 android-tools = "31.7.2"
 android-junit = "1.1.5"
 androidx-multidex = "2.0.1"
